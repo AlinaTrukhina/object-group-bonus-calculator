@@ -51,10 +51,11 @@ function main(){
 }
 
 function calculateAllEmployeeBonuses(){
+  bodyContent.innerHTML = '';
   for (let i = 0; i < employees.length; i++){
     console.log(employees[i]);
     let bonuses = calculateIndividualEmployeeBonus(employees[i]);
-    bodyContent.innerHTML += `${bonuses.name} has a total compensation bonus of ${bonuses.totalBonus} with a percentage of ${bonuses.bonusPercentage} which totals ${bonuses.totalCompensation} </br>`
+    bodyContent.innerHTML += `${bonuses.name} has a total compensation bonus of ${bonuses.totalBonus} with a percentage of ${Math.floor((bonuses.bonusPercentage-1)*100)}% which totals ${bonuses.totalCompensation} </br>`
   } 
 }
 //alert(employeeBonus);
