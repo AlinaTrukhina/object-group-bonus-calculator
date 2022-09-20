@@ -42,13 +42,14 @@ console.log('array of employee data: ',  employees );
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
+function calculateAllEmployeeBonuses(){
+  for (let i = 0; i < employees.length; i++){
+    console.log(employees[i]);
+    calculateIndividualEmployeeBonus(employees[i]);
 
-for (let i = 0; i < employees.length; i++){
-  console.log(employees[i]);
-  calculateIndividualEmployeeBonus(employees[i]);
-
+  }
 }
-
+alert(employeeBonus);
 
 // This function will calculate 1 employee's bonus!
 //
@@ -91,12 +92,9 @@ function calculateIndividualEmployeeBonus( employee ) {
 
 console.log(employeeBonus);
 
-document.getElementsByTagName("h1") = `${employeeBonus}`;
-
 return(employeeBonus);
-
-
 
 }
 
+document.getElementById("header").innerHTML = 'hi';
 //console.log(calculateIndividualEmployeeBonus();
