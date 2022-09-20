@@ -42,14 +42,22 @@ console.log('array of employee data: ',  employees );
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
+
+let bodyContent = document.getElementById('header');
+
+function main(){
+  bodyContent.innerHTML = 'Hello World';
+  return;
+}
+
 function calculateAllEmployeeBonuses(){
   for (let i = 0; i < employees.length; i++){
     console.log(employees[i]);
-    calculateIndividualEmployeeBonus(employees[i]);
-
-  }
+    let bonuses = calculateIndividualEmployeeBonus(employees[i]);
+    bodyContent.innerHTML += `${bonuses.name} has a total compensation bonus of ${bonuses.totalBonus} with a percentage of ${bonuses.bonusPercentage} which totals ${bonuses.totalCompensation} </br>`
+  } 
 }
-alert(employeeBonus);
+//alert(employeeBonus);
 
 // This function will calculate 1 employee's bonus!
 //
@@ -84,7 +92,7 @@ function calculateIndividualEmployeeBonus( employee ) {
   }
 //  console.log(employeeBonus.bonusPercentage);
   // return new object with bonus results
-  employeeBonus.totalBonus = employee.annualSalary * (employeeBonus.bonusPercentage - 1);
+  employeeBonus.totalBonus = Math.floor(employee.annualSalary * (employeeBonus.bonusPercentage - 1));
 //  console.log('employeeBonus', employeeBonus.totalBonus);
 
   employeeBonus.totalCompensation = Number(employee.annualSalary) + employeeBonus.totalBonus;
@@ -96,5 +104,5 @@ return(employeeBonus);
 
 }
 
-document.getElementById("header").innerHTML = 'hi';
+//document.getElementById("header").innerHTML = 'hi';
 //console.log(calculateIndividualEmployeeBonus();
