@@ -82,3 +82,7 @@ and should receive an additional 5%.
 - Put the output on the DOM (visually on the page).
 - Make the app run only after the user clicks on a button on the page
 - Then style the output, making it visually appealing.
+
+
+
+totalCompensation = employee.annualSalary * bonusArray[employee.reviewRating-1]

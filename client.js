@@ -43,15 +43,60 @@ console.log('array of employee data: ',  employees );
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+for (let i = 0; i < employees.length; i++){
+  console.log(employees[i]);
+  calculateIndividualEmployeeBonus(employees[i]);
 
+}
 
 
 // This function will calculate 1 employee's bonus!
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
+  const employeeBonus = {
+    name : employee.name,
+    bonusPercentage : 0,
+    totalCompensation : 0,
+    totalBonus : 0
+  }
+  const bonusArray = [1, 1, 1.04, 1.06, 1.1];
+  console.log(bonusArray[employee.reviewRating-1]);
+  employeeBonus.bonusPercentage = bonusArray[employee.reviewRating-1];
   
-  
+  if (employee.employeeNumber.length === 4) {
+    employeeBonus.bonusPercentage += 0.05;
+  }
+//  console.log(employeeBonus.bonusPercentage);
+
+  if (employee.annualSalary > 65000) {
+    employeeBonus.bonusPercentage -= 0.01;
+  }
+
+
+  if (employeeBonus.bonusPercentage < 1) {
+    employeeBonus.bonusPercentage = 1;
+  }
+
+  if (employeeBonus.bonusPercentage > 1.13) {
+    employeeBonus.bonusPercentage = 1.13;
+  }
+//  console.log(employeeBonus.bonusPercentage);
   // return new object with bonus results
+  employeeBonus.totalBonus = employee.annualSalary * (employeeBonus.bonusPercentage - 1);
+//  console.log('employeeBonus', employeeBonus.totalBonus);
+
+  employeeBonus.totalCompensation = Number(employee.annualSalary) + employeeBonus.totalBonus;
+//  console.log('totalCompensation', employeeBonus.totalCompensation);
+
+console.log(employeeBonus);
+
+document.getElementsByTagName("h1") = `${employeeBonus}`;
+
+return(employeeBonus);
+
+
 
 }
+
+//console.log(calculateIndividualEmployeeBonus();
